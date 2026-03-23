@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import SectionHeading from "./SectionHeading";
 import aws17 from "@/assets/aws17.png";
 import aws20 from "@/assets/aws20.png";
 import aws25 from "@/assets/aws25.png";
@@ -51,23 +52,17 @@ const ProductCard = ({ product, index }: { product: Product; index: number }) =>
 const ProductsSection = () => (
   <section id="products" className="section-padding">
     <div className="container mx-auto">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="text-center mb-14"
-      >
-        <span className="text-secondary font-semibold text-sm uppercase tracking-widest">What We Offer</span>
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-3">Our Products</h2>
-      </motion.div>
+      <SectionHeading
+        subtitle="What We Offer"
+        title="Our Products"
+      />
 
       {/* Minimal Series */}
       <div className="mb-14">
         <h3 className="text-2xl font-bold text-foreground mb-8 text-center">
           Minimal Window Series
         </h3>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {minimalSeries.map((p, i) => (
             <ProductCard key={p.name} product={p} index={i} />
           ))}
@@ -79,7 +74,7 @@ const ProductsSection = () => (
         <h3 className="text-2xl font-bold text-foreground mb-8 text-center">
           Casement Series
         </h3>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-5xl mx-auto">
           {casementSeries.map((p, i) => (
             <ProductCard key={p.name} product={p} index={i} />
           ))}

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import SectionHeading from "./SectionHeading";
 import GodrejLogo from "@/assets/godrej.jpeg";
 import CapaciteLogo from "@/assets/capacite.jpeg";
 import DemLogo from "@/assets/dem.jpeg";
@@ -16,17 +17,11 @@ const clients = [
 const ClientsSection = () => (
   <section id="clients" className="section-padding section-alt">
     <div className="container mx-auto">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="text-center mb-14"
-      >
-        <span className="text-secondary font-semibold text-sm uppercase tracking-widest">Our Partners</span>
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-3 mb-4">Our Clients</h2>
-        <p className="text-muted-foreground">Trusted by leading construction and infrastructure companies</p>
-      </motion.div>
+      <SectionHeading 
+        subtitle="Our Partners"
+        title="Our Clients"
+        description="Trusted by leading construction and infrastructure companies"
+      />
 
       <div className="overflow-hidden">
         <motion.div
@@ -37,7 +32,7 @@ const ClientsSection = () => (
           {[...clients, ...clients].map((client, i) => (
             <div
               key={i}
-              className="flex-shrink-0 bg-card border border-border rounded-xl px-10 py-6 flex items-center justify-center min-w-[200px] card-shadow"
+              className="flex-shrink-0 bg-card border border-border rounded-xl px-6 py-6 flex items-center justify-center w-48 sm:w-52 md:w-56 card-shadow"
             >
               <img 
                 src={client.logo} 

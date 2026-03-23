@@ -45,13 +45,13 @@ const HeroSection = () => {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent/50 to-black/40" />
 
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-3xl mx-auto"
-        >
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl mx-auto"
+          >
           <span className="inline-block text-white/90 bg-black/20 backdrop-blur-sm border border-white/30 rounded-full px-5 py-1.5 text-sm font-medium mb-6 shadow-xl">
             Since 2017 — Trusted Fabricator
           </span>

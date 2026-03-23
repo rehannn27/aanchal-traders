@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import SectionHeading from "./SectionHeading";
 
 const sectors = [
   { title: "Residential", desc: "Premium windows, sliding doors, balcony railings for homes", icon: "🏠" },
@@ -12,20 +13,13 @@ const sectors = [
 const SectorsSection = () => (
   <section id="sectors" className="section-padding">
     <div className="container mx-auto px-4">
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="text-center mb-16"
-      >
-        <span className="text-secondary font-semibold text-sm uppercase tracking-widest">Our Expertise</span>
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-3">Our Sectors</h2>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto mt-4">
-          Serving diverse industries with precision aluminium solutions tailored to specific needs.
-        </p>
-      </motion.div>
+      <SectionHeading 
+        subtitle="Our Expertise"
+        title="Our Sectors"
+        description="Serving diverse industries with precision aluminium solutions tailored to specific needs."
+      />
       
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
         {sectors.map((sector, index) => (
           <motion.div
             key={sector.title}

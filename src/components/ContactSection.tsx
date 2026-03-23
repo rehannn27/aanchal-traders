@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import SectionHeading from "./SectionHeading";
 import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -52,16 +53,10 @@ const ContactSection = () => {
   return (
     <section id="contact" className="section-padding">
       <div className="container mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-14"
-        >
-          <span className="text-secondary font-semibold text-sm uppercase tracking-widest">Get In Touch</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-3">Contact Us</h2>
-        </motion.div>
+        <SectionHeading
+          subtitle="Get In Touch"
+          title="Contact Us"
+        />
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
           {/* Info */}

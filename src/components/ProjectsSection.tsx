@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import SectionHeading from "./SectionHeading";
 // New HEIC photos converted to JPGs
 
 const mangrovePhotos = [
@@ -18,18 +19,12 @@ const projects = [{
 const ProjectsSection = () => (
   <section id="projects" className="section-padding section-alt">
     <div className="container mx-auto">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="text-center mb-14"
-      >
-        <span className="text-secondary font-semibold text-sm uppercase tracking-widest">Featured Work</span>
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-3">Our Projects</h2>
-      </motion.div>
+      <SectionHeading 
+        subtitle="Featured Work"
+        title="Our Projects" 
+      />
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
         {projects.map((project, index) => (
           <Link
             key={project.title}
