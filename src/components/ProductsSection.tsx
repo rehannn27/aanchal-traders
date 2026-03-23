@@ -1,12 +1,14 @@
 import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
-import aws17 from "@/assets/aws17.png";
-import aws20 from "@/assets/aws20.png";
-import aws25 from "@/assets/aws25.png";
-import aws30 from "@/assets/aws30.png";
-import acs45 from "@/assets/acs45.png";
-import acs52 from "@/assets/acs52.png";
-import abd75 from "@/assets/abd75.png";
+import aws17 from "@/assets/17mm.jpeg";
+import aws20 from "@/assets/20mm.jpeg";
+import aws30 from "@/assets/30mm.jpeg";
+import acs40 from "@/assets/40mm.jpeg";
+import acs52 from "@/assets/52mm.jpeg";
+import facade from "@/assets/facade.jpeg";
+import railing from "@/assets/railing.jpeg";
+import acp from "@/assets/acp.jpeg";
+import aluminiumFrame from "@/assets/aluminum fence.jpeg";
 
 interface Product {
   name: string;
@@ -16,15 +18,20 @@ interface Product {
 
 const minimalSeries: Product[] = [
   { name: "AWS 17 Minimal", desc: "A sleek and space-efficient sliding system designed for clean aesthetics and smooth functionality.", image: aws17 },
-  { name: "AWS 20 Minimal", desc: "Enhanced durability with a minimal profile. A perfect balance of elegance and performance.", image: aws20 },
-  { name: "AWS 25 Minimal", desc: "Robust slim-profile system offering stability and premium finishing for larger openings.", image: aws25 },
-  { name: "AWS 30 Minimal", desc: "Designed for large architectural spaces with superior strength and refined detailing.", image: aws30 },
+  { name: "AWS 20", desc: "Enhanced durability with a minimal profile. A perfect balance of elegance and performance.", image: aws20 },
+  { name: "AWS 30", desc: "Designed for large architectural spaces with superior strength and refined detailing.", image: aws30 },
 ];
 
 const casementSeries: Product[] = [
-  { name: "ACS 45 Casement", desc: "Reliable solution for ventilation, security, and durability.", image: acs45 },
+  { name: "ACS 40 Casement", desc: "Reliable solution for ventilation, security, and durability.", image: acs40 },
   { name: "ACS 52 Casement", desc: "Stronger frame with improved insulation performance.", image: acs52 },
-  { name: "ABD 75 Biofold", desc: "Versatile bi-fold system connecting indoor and outdoor spaces seamlessly.", image: abd75 },
+];
+
+const otherProducts: Product[] = [
+  { name: "Facade", desc: "Premium facade systems for modern architectural designs.", image: facade },
+  { name: "Railing", desc: "Elegant and durable balcony railing solutions.", image: railing },
+  { name: "ACP", desc: "High-quality aluminium composite panels for interiors and exteriors.", image: acp },
+  { name: "Aluminium Frame", desc: "High-quality aluminium frames for windows and doors.", image: aluminiumFrame },
 ];
 
 const ProductCard = ({ product, index }: { product: Product; index: number }) => (
@@ -70,7 +77,7 @@ const ProductsSection = () => (
       </div>
 
       {/* Casement Series */}
-      <div>
+      <div className="mb-14">
         <h3 className="text-2xl font-bold text-foreground mb-8 text-center">
           Casement Series
         </h3>
@@ -80,8 +87,21 @@ const ProductsSection = () => (
           ))}
         </div>
       </div>
+
+      {/* Other Products */}
+      <div>
+        <h3 className="text-2xl font-bold text-foreground mb-8 text-center">
+          Speciality Products
+        </h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-5xl mx-auto">
+          {otherProducts.map((p, i) => (
+            <ProductCard key={p.name} product={p} index={i} />
+          ))}
+        </div>
+      </div>
     </div>
   </section>
 );
 
 export default ProductsSection;
+
