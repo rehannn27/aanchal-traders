@@ -4,10 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const mangrovePhotos = [
-  "/src/assets/mangrove-borivali/6-project.jpg",
-  "/src/assets/mangrove-borivali/7-project.jpg",
-  "/src/assets/mangrove-borivali/8-project.jpg",
-  "/src/assets/mangrove-borivali/9-project.jpg"
+  "mangrove-borivali/6-project.jpg",
+  "mangrove-borivali/7-project.jpg",
+  "mangrove-borivali/8-project.jpg",
+  "mangrove-borivali/9-project.jpg"
 ];
 
 const MangroveProject = () => {
