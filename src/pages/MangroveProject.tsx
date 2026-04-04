@@ -2,8 +2,9 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useState } from "react";
 
-// ✅ FIXED (ONLY FILENAMES)
+// ✅ FIXED PATHS
 const mangrovePhotos = [
   "6-project.jpg",
   "7-project.jpg",
@@ -12,6 +13,18 @@ const mangrovePhotos = [
 ];
 
 const MangroveProject = () => {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImage, setCurrentImage] = useState("");
+
+  const openLightbox = (image: string) => {
+    setCurrentImage(image);
+    setLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+  };
+
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
@@ -126,7 +139,7 @@ const MangroveProject = () => {
         </div>
       </section>
 
-      {/* Gallery */}
+      {/* Premium Gallery */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           <motion.h2
@@ -141,23 +154,55 @@ const MangroveProject = () => {
             {mangrovePhotos.map((photo, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="group relative overflow-hidden rounded-2xl shadow-xl"
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group cursor-pointer relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 h-80 md:h-96"
+                onClick={() => openLightbox(`/mangrove-borivali/${photo}`)}
               >
-                {/* ✅ FIXED PATH */}
                 <img
                   src={`/mangrove-borivali/${photo}`}
                   alt={`Gallery ${index + 1}`}
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 group-hover:brightness-110"
                 />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                  <span className="text-white font-semibold text-lg backdrop-blur-sm px-6 py-3 rounded-xl border border-white/20">
+                    View Fullscreen
+                  </span>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Lightbox Modal */}
+      {lightboxOpen && (
+        <div 
+          className="fixed inset-0 z-[9999] bg-black/90 flex items-center justify-center p-4"
+          onClick={closeLightbox}
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            className="relative max-w-4xl max-h-[90vh] w-full h-full flex items-center justify-center"
+          >
+            <button
+              className="absolute -top-12 -right-4 text-white text-2xl hover:text-gray-300 z-[10000]"
+              onClick={closeLightbox}
+            >
+              ×
+            </button>
+            <img
+              src={currentImage}
+              alt="Fullscreen"
+              className="max-w-full max-h-full object-contain rounded-xl shadow-2xl cursor-zoom-in"
+            />
+          </motion.div>
+        </div>
+      )}
 
       {/* CTA */}
       <section className="py-20 bg-primary text-primary-foreground">
@@ -184,3 +229,4 @@ const MangroveProject = () => {
 };
 
 export default MangroveProject;
+
