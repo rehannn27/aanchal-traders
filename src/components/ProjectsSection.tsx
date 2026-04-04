@@ -40,7 +40,7 @@ const ProjectsSection = () => (
             >
               <div className="aspect-[4/3] overflow-hidden rounded-xl">
                 <img
-src={`/assets/${mangrovePhotos[0]}`}
+src="/mangrove-borivali/6-project.jpg"
                   alt={project.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
