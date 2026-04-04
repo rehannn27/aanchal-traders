@@ -44,7 +44,7 @@ const MangroveProject = () => {
           >
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src={mangrovePhotos[0]}
+                src={`/assets/${mangrovePhotos[0]}`}
                 alt="Mangrove Project"
                 className="w-full h-full object-cover"
               />
@@ -116,7 +116,7 @@ const MangroveProject = () => {
               viewport={{ once: true }}
             >
               <img
-                src={mangrovePhotos[2]}
+                src={`/assets/${mangrovePhotos[2]}`}
                 alt="Project detail"
                 className="rounded-2xl shadow-2xl w-full"
               />
@@ -147,7 +147,7 @@ const MangroveProject = () => {
                 className="group relative overflow-hidden rounded-2xl shadow-xl"
               >
                 <img
-                  src={photo}
+                  src={`/assets/${photo}`}
                   alt={`Gallery ${index + 1}`}
                   className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
                 />
