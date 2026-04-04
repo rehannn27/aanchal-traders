@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
+// ✅ FIXED (ONLY FILENAMES)
 const mangrovePhotos = [
-  "mangrove-borivali/6-project.jpg",
-  "mangrove-borivali/7-project.jpg",
-  "mangrove-borivali/8-project.jpg",
-  "mangrove-borivali/9-project.jpg"
+  "6-project.jpg",
+  "7-project.jpg",
+  "8-project.jpg",
+  "9-project.jpg"
 ];
 
 const MangroveProject = () => {
@@ -44,7 +45,7 @@ const MangroveProject = () => {
           >
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
               <img
-src="/mangrove-borivali/6-project.jpg"
+                src="/mangrove-borivali/6-project.jpg"
                 alt="Mangrove Project"
                 className="w-full h-full object-cover"
               />
@@ -57,7 +58,7 @@ src="/mangrove-borivali/6-project.jpg"
                       className={`w-3 h-3 rounded-full transition-all duration-300 ${
                         index === 0 ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white'
                       }`}
-                      onClick={() => {}} // Simplified; full carousel can be added
+                      onClick={() => {}}
                     />
                   ))}
                 </div>
@@ -116,7 +117,7 @@ src="/mangrove-borivali/6-project.jpg"
               viewport={{ once: true }}
             >
               <img
-src="/mangrove-borivali/8-project.jpg"
+                src="/mangrove-borivali/8-project.jpg"
                 alt="Project detail"
                 className="rounded-2xl shadow-2xl w-full"
               />
@@ -146,8 +147,9 @@ src="/mangrove-borivali/8-project.jpg"
                 transition={{ delay: index * 0.1 }}
                 className="group relative overflow-hidden rounded-2xl shadow-xl"
               >
+                {/* ✅ FIXED PATH */}
                 <img
-src={`/mangrove-borivali/${photo}`}
+                  src={`/mangrove-borivali/${photo}`}
                   alt={`Gallery ${index + 1}`}
                   className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
                 />
@@ -182,4 +184,3 @@ src={`/mangrove-borivali/${photo}`}
 };
 
 export default MangroveProject;
-
